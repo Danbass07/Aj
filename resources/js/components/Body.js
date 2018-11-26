@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Navigation from './Navigation';
+import Main from './Main';
+import Sidebar from './Sidebar';
+import Footer from './Footer';
 import './Body.css';
 
 export default class Body extends Component {
     constructor(props){
         super(props);
         this.state = {
-            class: ['One', 'Two']
         }
         //bind this
     }
@@ -15,11 +18,11 @@ export default class Body extends Component {
    
     render() {
         return (
-            <div className={"Body "+this.state.class[0]}>
-            <div className={"Navigation "+this.state.class[0]} />
-            <div className={"Main "+this.state.class[0]} />
-            <div className={"Sidebar "+this.state.class[0]} />
-            <div className={"Footer "+this.state.class[0]} />
+            <div className={"Body "}>
+            <Navigation props="Navigation " />
+            <Main props={"Main "} />
+            <Sidebar props={"Sidebar "} />
+            <Footer props={"Footer "} />
             </div>
         );
     }

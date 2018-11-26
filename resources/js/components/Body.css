@@ -1,6 +1,9 @@
-.Body .One {
+body {
+    margin: 0px;
+}
+.Body {
     height: 100vh;
-    width:  100%;
-    background-color: blue;
     margin:0;
+    border: 3px solid black;
+    box-sizing: border-box;
 }

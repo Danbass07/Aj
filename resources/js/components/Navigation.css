@@ -1,0 +1,56 @@
+.Navigation {
+    height: 80px;
+    width: 100%;
+    margin: 0px;
+    box-sizing: border-box;
+    border-bottom: solid 1px darkslategray;
+    color: white;
+    
+}
+.TopStrip {
+    height: 40px;
+    width: 100%;
+    background-color: darkslategray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.Logo {
+    height: 30px;
+    width: 90px;
+    background-color: green;
+    padding: 7px;
+    padding-left: 13px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-left: 10px;
+    color: black;
+
+}
+.Number {
+    height: 20px;
+    width: 130px;
+    padding: 12px;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-left: 10px;
+
+}
+.BottomStrip {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 18px;
+    box-sizing: border-box;
+    color: darkslategray;
+    font-family: 'Work Sans', sans-serif;
+}
+.MenuButton {
+   background-color:  white;
+   height: 20px;
+   width: 20%;
+   text-align: center;
+}
