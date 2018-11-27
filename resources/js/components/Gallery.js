@@ -23,8 +23,8 @@ class Screen extends Component  {
     const style = {
      
 
-        width: '100%',
-        height: '180px',
+        width: '150px',
+        height: '152px',
         margin: '50px 5px',
         borderRadius: '10% 10% 10% 10%',
         boxShadow: '0px 1px 30px 1px rgba(0,0,0,1)'

@@ -60130,8 +60130,8 @@ var Screen = function (_Component) {
         value: function render() {
             var style = {
 
-                width: '100%',
-                height: '180px',
+                width: '150px',
+                height: '152px',
                 margin: '50px 5px',
                 borderRadius: '10% 10% 10% 10%',
                 boxShadow: '0px 1px 30px 1px rgba(0,0,0,1)'
@@ -60238,7 +60238,7 @@ exports = module.exports = __webpack_require__(51)(false);
 
 
 // module
-exports.push([module.i, ".Home {\r\n    display: flex;\r\n    flex-direction: row;\r\n    \r\n}\r\n.Text {\r\n    width: 100%;\r\n    flex-grow: 2;\r\n    padding-top: 45px ;\r\n}\r\nhr {\r\n    margin:60px;\r\n}", ""]);
+exports.push([module.i, ".Home {\r\n    display: flex;\r\n    flex-direction: row;\r\n    \r\n}\r\n.Text {\r\n    padding-top: 45px ;\r\n}\r\nhr {\r\n    margin:60px;\r\n}\r\np {\r\n    margin: 4px;\r\n}", ""]);
 
 // exports
 
