@@ -58957,19 +58957,32 @@ var Body = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).call(this, props));
 
-        _this.state = {};
-        //bind this
-        return _this;
+        _this.state = {
+            active: 'Home'
+            //bind this
+        };return _this;
     }
 
     _createClass(Body, [{
+        key: 'buttonHandler',
+        value: function buttonHandler(e) {
+
+            this.setState({
+                active: e.target.value
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: "Body " },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Navigation__["a" /* default */], { props: 'Navigation ' }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Main__["a" /* default */], { props: "Main " }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Navigation__["a" /* default */], { active: this.state.active, click: function click(e) {
+                        return _this2.buttonHandler(e);
+                    } }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Main__["a" /* default */], { active: this.state.active }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Sidebar__["a" /* default */], { props: "Sidebar " }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Footer__["a" /* default */], { props: "Footer " })
             );
@@ -59021,7 +59034,7 @@ exports = module.exports = __webpack_require__(51)(false);
 
 
 // module
-exports.push([module.i, "body {\r\n    margin: 0px;\r\n}\r\n.Body {\r\n    height: 100vh;\r\n    margin:0;\r\n    border: 3px solid black;\r\n    box-sizing: border-box;\r\n}", ""]);
+exports.push([module.i, "body {\r\n    margin: 0px;\r\n}\r\n.Body {\r\n    margin:0;\r\n    box-sizing: border-box;\r\n}", ""]);
 
 // exports
 
@@ -59592,20 +59605,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Navigation = function (_Component) {
     _inherits(Navigation, _Component);
 
-    function Navigation(props) {
+    function Navigation() {
         _classCallCheck(this, Navigation);
 
-        var _this = _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).call(this, props));
-
-        _this.state = {
-            props: _this.props.props
-            //bind this
-        };return _this;
+        return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).apply(this, arguments));
     }
 
     _createClass(Navigation, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: "Navigation " },
@@ -59632,23 +59642,43 @@ var Navigation = function (_Component) {
                     'div',
                     { className: 'BottomStrip' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'nav',
-                        { className: 'MenuButton' },
+                        'button',
+                        {
+                            value: 'Home',
+                            className: this.props.active === "Home" ? "MenuButton Active" : "MenuButton",
+                            onClick: function onClick(e) {
+                                return _this2.props.click(e);
+                            } },
                         'Home'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'nav',
-                        { className: 'MenuButton' },
+                        'button',
+                        {
+                            value: 'Vehicles',
+                            className: this.props.active === "Vehicles" ? "MenuButton Active" : "MenuButton",
+                            onClick: function onClick(e) {
+                                return _this2.props.click(e);
+                            } },
                         'Vehicles'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'nav',
-                        { className: 'MenuButton' },
+                        'button',
+                        {
+                            value: 'Staff',
+                            className: this.props.active === "Staff" ? "MenuButton Active" : "MenuButton",
+                            onClick: function onClick(e) {
+                                return _this2.props.click(e);
+                            } },
                         'Staff'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'nav',
-                        { className: 'MenuButton' },
+                        'button',
+                        {
+                            value: 'Contact',
+                            className: this.props.active === "Contact" ? "MenuButton Active" : "MenuButton",
+                            onClick: function onClick(e) {
+                                return _this2.props.click(e);
+                            } },
                         'Contact'
                     )
                 )
@@ -59701,7 +59731,7 @@ exports = module.exports = __webpack_require__(51)(false);
 
 
 // module
-exports.push([module.i, ".Navigation {\r\n    height: 80px;\r\n    width: 100%;\r\n    margin: 0px;\r\n    box-sizing: border-box;\r\n    border-bottom: solid 1px darkslategray;\r\n    color: white;\r\n    \r\n}\r\n.TopStrip {\r\n    height: 40px;\r\n    width: 100%;\r\n    background-color: darkslategray;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    box-sizing: border-box;\r\n}\r\n.Logo {\r\n    height: 30px;\r\n    width: 90px;\r\n    background-color: green;\r\n    padding: 7px;\r\n    padding-left: 13px;\r\n    box-sizing: border-box;\r\n    margin-top: 5px;\r\n    margin-left: 10px;\r\n    color: black;\r\n\r\n}\r\n.Number {\r\n    height: 20px;\r\n    width: 130px;\r\n    padding: 12px;\r\n    box-sizing: border-box;\r\n    margin-right: 5px;\r\n    margin-left: 10px;\r\n\r\n}\r\n.BottomStrip {\r\n    height: 40px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    padding-top: 18px;\r\n    box-sizing: border-box;\r\n    color: darkslategray;\r\n    font-family: 'Work Sans', sans-serif;\r\n}\r\n.MenuButton {\r\n   background-color:  white;\r\n   height: 20px;\r\n   width: 20%;\r\n   text-align: center;\r\n}", ""]);
+exports.push([module.i, ".Navigation {\r\n    height: 80px;\r\n    width: 100%;\r\n    margin: 0px;\r\n    box-sizing: border-box;\r\n    border-bottom: solid 1px darkslategray;\r\n    color: white;\r\n    \r\n}\r\n.TopStrip {\r\n    height: 40px;\r\n    width: 100%;\r\n    background-color: darkslategray;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    box-sizing: border-box;\r\n}\r\n.Logo {\r\n    height: 30px;\r\n    width: 75px;\r\n    background-color: green;\r\n    padding-top: 6px;\r\n    padding-left: 6px;\r\n    box-sizing: border-box;\r\n    margin-top: 5px;\r\n    margin-left: 10px;\r\n    color: black;\r\n\r\n}\r\n.Number {\r\n    height: 20px;\r\n    width: 130px;\r\n    box-sizing: border-box;\r\n    margin-top: 12px;\r\n    margin-right: 5px;\r\n    margin-left: 5px;\r\n}\r\n.BottomStrip {\r\n    height: 40px;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    padding-top: 19px;\r\n    box-sizing: border-box;\r\n    color: darkslategray;\r\n    font-family: 'Work Sans', sans-serif;\r\n}\r\n.MenuButton {\r\n   background-color:  white;\r\n   height: 20px;\r\n   width: 20%;\r\n   text-align: center;\r\n   border: none;\r\n}\r\n.Active {\r\n    background-color:  darkslategray;\r\n    color: white;\r\n}\r\n@media only screen and (max-width: 380px) {\r\n    .Number {\r\n        display: none;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -59713,8 +59743,9 @@ exports.push([module.i, ".Navigation {\r\n    height: 80px;\r\n    width: 100%;\
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Main_css__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Main_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Home__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Main_css__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Main_css__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59722,6 +59753,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -59742,7 +59774,11 @@ var Main = function (_Component) {
     _createClass(Main, [{
         key: 'render',
         value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: "Main " });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: "Main " },
+                this.props.active === "Home" ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Home__["a" /* default */], null) : null
+            );
         }
     }]);
 
@@ -59972,6 +60008,237 @@ exports = module.exports = __webpack_require__(51)(false);
 
 // module
 exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Gallery__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Home_css__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Home_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Home_css__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var Home = function (_Component) {
+    _inherits(Home, _Component);
+
+    function Home(props) {
+        _classCallCheck(this, Home);
+
+        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+        _this.state = {};
+        //bind this
+        return _this;
+    }
+
+    _createClass(Home, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'Home' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Gallery__["a" /* default */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'Text' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        null,
+                        '                An has alii clita. Ius propriae theophrastus ad. Tritani efficiendi ei mea. Justo nulla corrumpit ex cum, sed unum detraxit atomorum ex, et nec saepe scripta. Duis percipit singulis ut sed, eligendi percipitur quo ad, duo eros nominavi ea.'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        null,
+                        '     Case intellegebat duo at, veri graece adversarium eam ea, an eum assum voluptatum. Graecis verterem pertinacia eu ius, est ut debet consectetuer, tacimates praesent erroribus usu in. Omnium qualisque pri at. No sint cetero salutandi sed, feugait expetendis theophrastus per ut, clita tation tractatos cu cum. Nam possim inermis at, e veri soluta forensibus, soluta inermis assentior at est. Te nam facer omittam, ea eruditi assentior ius, platonem constituam necessitatibus in mea. Eu elit democritum interesset eam, an graeco commune mea.'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        null,
+                        'At quo vidisse corpora. Feugait accusata te nam, eam copiosae moderatius ea, at per modo animal . Pro et dicit ponderum contentiones, no accusam appetere vim. In pro nisl causae feugiat, his atqui principes iracundia cu. An has unum brute, ex nobis exerci iuvaret duo. Has tollit cari conceptam an, sint quaerendum eum ad.'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        null,
+                        '     Case intellegebat duo at, veri graece adversarium eam ea, an eum assum voluptatum. Graecis verterem pertinacia eu ius, est ut debet consectetuer, tacimates praesent erroribus usu in. Omnium qualisque pri at. No sint cetero salutandi sed, feugait expetendis theophrastus per ut, clita tation tractatos cu cum. Nam possim inermis at, e veri soluta forensibus, soluta inermis assentior at est. Te nam facer omittam, ea eruditi assentior ius, platonem constituam necessitatibus in mea. Eu elit democritum interesset eam, an graeco commune mea.'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Home;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Home);
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Gallery_css__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Gallery_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Gallery_css__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var Screen = function (_Component) {
+    _inherits(Screen, _Component);
+
+    function Screen(props) {
+        _classCallCheck(this, Screen);
+
+        var _this = _possibleConstructorReturn(this, (Screen.__proto__ || Object.getPrototypeOf(Screen)).call(this, props));
+
+        _this.state = {
+            sliderPhotos: ['http://malek.ovh/rwc/resources/Img/1.jpg', 'http://malek.ovh/rwc/resources/Img/2.jpg', 'http://malek.ovh/rwc/resources/Img/3.jpg', 'http://malek.ovh/rwc/resources/Img/4.jpg']
+
+        };
+        return _this;
+    }
+
+    _createClass(Screen, [{
+        key: 'render',
+        value: function render() {
+            var style = {
+
+                width: '100%',
+                height: '180px',
+                margin: '50px 5px',
+                borderRadius: '10% 10% 10% 10%',
+                boxShadow: '0px 1px 30px 1px rgba(0,0,0,1)'
+
+            };
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'Gallery' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'Slide ', style: style, src: this.state.sliderPhotos[0], alt: 'gallery1' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'Slide ', style: style, src: this.state.sliderPhotos[1], alt: 'gallery2' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'Slide ', style: style, src: this.state.sliderPhotos[2], alt: 'gallery3' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'Slide ', style: style, src: this.state.sliderPhotos[3], alt: 'gallery4' })
+            );
+        }
+    }]);
+
+    return Screen;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Screen);
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(71);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(52)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./Gallery.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./Gallery.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(51)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".Gallery {     \r\ndisplay: block;\r\nmargin:15px 25px;\r\nwidth: 50%;\r\n  }\r\n\r\n\r\n\r\n\r\n\r\np {\r\n    margin: 5px 40px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(73);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(52)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./Home.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./Home.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(51)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".Home {\r\n    display: flex;\r\n    flex-direction: row;\r\n    \r\n}\r\n.Text {\r\n    width: 100%;\r\n    flex-grow: 2;\r\n    padding-top: 45px ;\r\n}\r\nhr {\r\n    margin:60px;\r\n}", ""]);
 
 // exports
 

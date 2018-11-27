@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import './Navigation.css';
 
 export default class Navigation extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            props: this.props.props,
-        }
-        //bind this
-    }
-   
-   
-   
    
     render() {
         return (
@@ -24,10 +14,34 @@ export default class Navigation extends Component {
 
                 </div>
                 <div className="BottomStrip">
-                    <nav className="MenuButton">Home</nav>
-                    <nav className="MenuButton">Vehicles</nav>
-                    <nav className="MenuButton">Staff</nav>
-                    <nav className="MenuButton">Contact</nav>
+                    <button
+                     value="Home" 
+                     className={this.props.active === "Home" ? "MenuButton Active" : "MenuButton" }
+                     onClick={(e) => this.props.click(e)}>
+                     Home                     
+                     </button>
+
+                    <button
+                     value="Vehicles" 
+                     className={this.props.active === "Vehicles" ? "MenuButton Active" : "MenuButton" }
+                     onClick={(e) => this.props.click(e)}>
+                     Vehicles
+                     </button>
+
+                    <button 
+                    value="Staff" 
+                    className={this.props.active === "Staff" ? "MenuButton Active" : "MenuButton" }
+                    onClick={(e) => this.props.click(e)}>
+                    Staff
+                    </button>
+
+                    <button 
+                    value="Contact" 
+                    className={this.props.active === "Contact" ? "MenuButton Active" : "MenuButton" } 
+                    onClick={(e) => this.props.click(e)}>
+                    Contact
+                    </button>
+
                 </div>
             </div>
         );

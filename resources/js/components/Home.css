@@ -1,0 +1,13 @@
+.Home {
+    display: flex;
+    flex-direction: row;
+    
+}
+.Text {
+    width: 100%;
+    flex-grow: 2;
+    padding-top: 45px ;
+}
+hr {
+    margin:60px;
+}

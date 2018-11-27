@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Home from './Home';
 import './Main.css';
 
 export default class Main extends Component {
@@ -15,7 +16,8 @@ export default class Main extends Component {
     render() {
         return (
             <div className={"Main "}>
-
+            {this.props.active === "Home" ? <Home /> : null }
+              
             </div>
         );
     }
