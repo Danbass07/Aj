@@ -1,37 +1,70 @@
-import React, { Component } from 'react';
-import Navigation from './Navigation';
-import Main from './Main';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
-import './Body.css';
+import React, { Component } from "react";
+import Dashboard from "./Dashboard";
+import { Button } from "@material-ui/core";
+
+import PlaceOrder from "./PlaceOrder";
+import DatePicker from "./DatePicker";
 
 export default class Body extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            active: 'Home',
-        }
-        //bind this
+            user: {}
+        };
     }
-   
-    buttonHandler(e){
-          
-        this.setState({
-            active: e.target.value,
-        })
+    placeOrder(hour, minutes) {
+        console.log(hour, minutes);
     }
-   
-   
+    componentDidMount() {
+        axios.get(`/users`).then(response => {
+            this.setState({
+                user: response.data[0],
+                users: response.data[1]
+            });
+        });
+
+        axios.get(`/timeline`).then(response => {
+            this.setState({
+                timeline: response.data
+            });
+        });
+        // check type of user
+        //load revelant data
+        //if taxi
+        //my working days and places
+        //my bookings
+        //if customer
+        //avaiable taxi for me
+        //my bookings
+    }
+
     render() {
+        // console.log(this.state);
         return (
-            <div className={"Body "}>
-            <Navigation active={this.state.active} click={(e) => this.buttonHandler(e)}/>
-            <Main active={this.state.active} />
-            <Sidebar props={"Sidebar "} />
-            <Footer props={"Footer "} />
+            <div>
+                {this.state.user.type === "taxi" ? (
+                    <DatePicker user={this.state.user} />
+                ) : null}
+                {this.state.user.type === "customer" ? (
+                    <PlaceOrder
+                        placeOrder={(hour, minutes) =>
+                            this.placeOrder(hour, minutes)
+                        }
+                    />
+                ) : null}
+                {/* <Dashboard /> */}
+                {/* <div className="Body">
+                    Position {this.state.position}
+                   
+                </div>
+
+                <div
+                    className={animation}
+                    onClick={() => this.animationTrigger()}
+                >
+                    Position {this.state.position}
+                </div> */}
             </div>
         );
     }
 }
-
-

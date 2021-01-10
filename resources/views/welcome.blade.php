@@ -16,7 +16,19 @@
     <body>
     @extends('layouts.app')
     @section('content')
-    <div id='root'></div>
+
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+
+              Place for simple website
+              If you are Pub Owner or taxi driver please LOG IN
+            </div>
+        </div>
+    </div>
+</div>
+
     @endsection
     </body>
 </html>
